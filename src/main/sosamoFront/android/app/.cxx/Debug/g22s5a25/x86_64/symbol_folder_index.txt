@@ -1,0 +1,1 @@
+D:\intellij-workspace\sosamoApp\src\main\sosamoFront\android\app\build\intermediates\cxx\Debug\g22s5a25\obj\x86_64

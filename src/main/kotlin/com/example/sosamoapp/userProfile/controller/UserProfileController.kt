@@ -1,0 +1,2 @@
+package com.example.sosamoapp.userProfile.controller
+class UserProfileController

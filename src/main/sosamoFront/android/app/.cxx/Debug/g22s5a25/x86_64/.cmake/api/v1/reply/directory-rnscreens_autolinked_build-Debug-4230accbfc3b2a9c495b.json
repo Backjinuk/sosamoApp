@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "rnscreens_autolinked_build",
+		"source" : "D:/intellij-workspace/sosamoApp/src/main/sosamoFront/node_modules/react-native-screens/android/src/main/jni"
+	}
+}
