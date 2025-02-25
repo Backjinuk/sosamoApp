@@ -48,7 +48,7 @@ const JoinForm: React.FC<JoinFormProps> = ({joinEvent, nextState, setNextStage})
         if (joinEvent) {
             const fields = { userId, passwd };
             if(FormChecked(fields)){
-                axios.post(api+`/user/userJoin`, JSON.stringify({
+                axios.post(`/user/userJoin`, JSON.stringify({
                     userId,
                     passwd,
                     name,

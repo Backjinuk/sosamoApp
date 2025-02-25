@@ -1,6 +1,6 @@
 package com.example.sosamoapp.user.user.domain.dto
 
-import com.example.sosamoapp.user.domain.dto.UserTokenDto
+import com.example.sosamoapp.domain.dto.user.UserTokenDto
 import jakarta.validation.ConstraintViolation
 import jakarta.validation.Validation
 import jakarta.validation.Validator

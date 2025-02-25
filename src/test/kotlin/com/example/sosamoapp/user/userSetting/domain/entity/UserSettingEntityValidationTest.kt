@@ -1,8 +1,8 @@
 package com.example.sosamoapp.user.userSetting.domain.entity
 
-import com.example.sosamoapp.userSetting.domain.ThemePreference
-import com.example.sosamoapp.userSetting.domain.UserSettingEnabled
-import com.example.sosamoapp.userSetting.domain.entity.UserSettingEntity
+import com.example.sosamoapp.domain.enums.ThemePreference
+import com.example.sosamoapp.domain.enums.UserSettingEnabled
+import com.example.sosamoapp.domain.entity.userSetting.UserSettingEntity
 import jakarta.validation.ConstraintViolation
 import jakarta.validation.Validation
 import jakarta.validation.Validator

@@ -1,10 +1,10 @@
 package com.example.sosamoapp.user.useCase
 
-import UserService
-import com.example.sosamoapp.useCase.UserUseCaseInteract
-import com.example.sosamoapp.user.domain.UserJoinType
-import com.example.sosamoapp.user.domain.UserRole
-import com.example.sosamoapp.user.domain.dto.UserDto
+import com.example.sosamoapp.application.service.userService.UserService
+import com.example.sosamoapp.application.usecase.UserUseCaseInteract
+import com.example.sosamoapp.domain.enums.UserJoinType
+import com.example.sosamoapp.domain.enums.UserRole
+import com.example.sosamoapp.domain.dto.user.UserDto
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested

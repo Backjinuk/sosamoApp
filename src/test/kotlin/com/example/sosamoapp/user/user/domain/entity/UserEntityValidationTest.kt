@@ -1,8 +1,8 @@
 package com.example.sosamoapp.user.user.domain.entity
 
-import com.example.sosamoapp.user.domain.UserJoinType
-import com.example.sosamoapp.user.domain.UserRole
-import com.example.sosamoapp.user.domain.entity.UserEntity
+import com.example.sosamoapp.domain.enums.UserJoinType
+import com.example.sosamoapp.domain.enums.UserRole
+import com.example.sosamoapp.domain.entity.user.UserEntity
 import jakarta.validation.ConstraintViolation
 import jakarta.validation.Validation
 import jakarta.validation.Validator

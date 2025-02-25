@@ -2,13 +2,13 @@ package com.example.sosamoapp.user.user.service
 
 import UserService
 import ValidatorUtil
-import com.example.sosamoapp.user.infra.repository.UserRepository
-import com.example.sosamoapp.user.domain.UserJoinType
-import com.example.sosamoapp.user.domain.UserRole
-import com.example.sosamoapp.user.domain.dto.UserDto
-import com.example.sosamoapp.user.domain.dto.UserTokenDto
-import com.example.sosamoapp.user.domain.entity.UserEntity
-import com.example.sosamoapp.user.domain.entity.UserTokenEntity
+import com.example.sosamoapp.domain.repository.UserRepository
+import com.example.sosamoapp.domain.enums.UserJoinType
+import com.example.sosamoapp.domain.enums.UserRole
+import com.example.sosamoapp.domain.dto.user.UserDto
+import com.example.sosamoapp.domain.dto.user.UserTokenDto
+import com.example.sosamoapp.domain.entity.user.UserEntity
+import com.example.sosamoapp.domain.entity.user.UserTokenEntity
 import io.mockk.*
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK

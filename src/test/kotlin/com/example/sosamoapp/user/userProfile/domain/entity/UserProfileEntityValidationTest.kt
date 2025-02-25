@@ -1,6 +1,6 @@
 package com.example.sosamoapp.user.userProfile.domain.entity
 
-import com.example.sosamoapp.userProfile.domain.entity.UserProfileEntity
+import com.example.sosamoapp.domain.entity.userProfile.UserProfileEntity
 import jakarta.validation.Validation
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Assertions.assertEquals

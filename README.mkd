@@ -1,0 +1,25 @@
+## 프로젝트 구조
+
+com.example.project
+├── config                     // 애플리케이션 전반의 설정
+├── controller               // 프레젠테이션 레이어: HTTP 요청을 받아 서비스로 전달
+│   ├── UserController.kt
+│   ├── UserProfileController.kt
+│   └── UserSettingController.kt
+├── service                  // 애플리케이션/비즈니스 레이어: 비즈니스 로직 처리
+│   ├── UserService.kt
+│   ├── UserProfileService.kt
+│   └── UserSettingService.kt
+├── domain                   // 도메인 레이어: 핵심 엔티티와 도메인 로직
+│   ├── entity
+│   │   ├── UserEntity.kt
+│   │   ├── UserProfileEntity.kt
+│   │   └── UserSettingEntity.kt
+│   └── dto
+│       ├── UserDto.kt
+│       ├── UserProfileDto.kt
+│       └── UserSettingDto.kt
+└── repository               // 인프라 레이어: 데이터베이스 접근 구현
+    ├── UserRepository.kt
+    ├── UserProfileRepository.kt
+    └── UserSettingRepository.kt

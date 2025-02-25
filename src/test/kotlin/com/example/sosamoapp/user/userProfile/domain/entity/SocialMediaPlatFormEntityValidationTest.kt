@@ -1,6 +1,6 @@
 package com.example.sosamoapp.user.userProfile.domain.entity
 
-import com.example.sosamoapp.userProfile.domain.entity.SocialMediaPlatFormEntity
+import com.example.sosamoapp.domain.entity.userProfile.SocialMediaPlatFormEntity
 import jakarta.validation.ConstraintViolation
 import jakarta.validation.Validation
 import jakarta.validation.Validator

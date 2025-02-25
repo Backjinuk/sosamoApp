@@ -1,6 +1,6 @@
 package com.example.sosamoapp.user.user.domain.entity
 
-import com.example.sosamoapp.user.domain.entity.UserTokenEntity
+import com.example.sosamoapp.domain.entity.user.UserTokenEntity
 import jakarta.validation.ConstraintViolation
 import jakarta.validation.Validation
 import jakarta.validation.Validator

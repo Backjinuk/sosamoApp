@@ -1,6 +1,6 @@
 package com.example.sosamoapp.util
 
-import com.example.sosamoapp.user.domain.dto.UserDto
+import com.example.sosamoapp.domain.dto.user.UserDto
 import io.jsonwebtoken.*
 import io.jsonwebtoken.io.Decoders
 import io.jsonwebtoken.security.Keys

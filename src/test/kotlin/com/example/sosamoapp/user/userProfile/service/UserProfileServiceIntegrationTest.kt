@@ -1,9 +1,9 @@
 package com.example.sosamoapp.user.userProfile.service
 
-import com.example.sosamoapp.userProfile.domain.dto.SocialMediaPlatFormDto
-import com.example.sosamoapp.userProfile.domain.dto.UserProfileDto
-import com.example.sosamoapp.userProfile.infra.repository.UserProfileRepository
-import com.example.sosamoapp.userProfile.service.UserProfileService
+import com.example.sosamoapp.domain.dto.userProfile.SocialMediaPlatFormDto
+import com.example.sosamoapp.domain.dto.userProfile.UserProfileDto
+import com.example.sosamoapp.domain.repository.UserProfileRepository
+import com.example.sosamoapp.application.service.userProfileService.UserProfileService
 import jakarta.transaction.Transactional
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue

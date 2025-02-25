@@ -1,9 +1,9 @@
 package com.example.sosamoapp.user.userSetting.service
 
-import com.example.sosamoapp.userSetting.service.UserSettingService
-import com.example.sosamoapp.userSetting.domain.ThemePreference
-import com.example.sosamoapp.userSetting.domain.UserSettingEnabled
-import com.example.sosamoapp.userSetting.domain.dto.UserSettingDto
+import com.example.sosamoapp.application.service.userSettingService.UserSettingService
+import com.example.sosamoapp.domain.enums.ThemePreference
+import com.example.sosamoapp.domain.enums.UserSettingEnabled
+import com.example.sosamoapp.domain.dto.userSetting.UserSettingDto
 import jakarta.transaction.Transactional
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName

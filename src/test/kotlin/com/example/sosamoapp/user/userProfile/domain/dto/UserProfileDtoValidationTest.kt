@@ -1,6 +1,6 @@
 package com.example.myapp.user.userProfile.domain.dto
 
-import com.example.sosamoapp.userProfile.domain.dto.UserProfileDto
+import com.example.sosamoapp.domain.dto.userProfile.UserProfileDto
 import jakarta.validation.Validation
 import jakarta.validation.Validator
 import org.junit.jupiter.api.Assertions.assertEquals

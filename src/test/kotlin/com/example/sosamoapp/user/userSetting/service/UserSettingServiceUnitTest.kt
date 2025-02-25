@@ -1,12 +1,12 @@
 package com.example.sosamoapp.user.userSetting.service
 
 import ValidatorUtil
-import com.example.sosamoapp.userSetting.service.UserSettingService
-import com.example.sosamoapp.userSetting.domain.ThemePreference
-import com.example.sosamoapp.userSetting.domain.UserSettingEnabled
-import com.example.sosamoapp.userSetting.domain.dto.UserSettingDto
-import com.example.sosamoapp.userSetting.domain.entity.UserSettingEntity
-import com.example.sosamoapp.userSetting.infra.repository.UserSettingRepository
+import com.example.sosamoapp.application.service.userSettingService.UserSettingService
+import com.example.sosamoapp.domain.enums.ThemePreference
+import com.example.sosamoapp.domain.enums.UserSettingEnabled
+import com.example.sosamoapp.domain.dto.userSetting.UserSettingDto
+import com.example.sosamoapp.domain.entity.userSetting.UserSettingEntity
+import com.example.sosamoapp.domain.repository.UserSettingRepository
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
