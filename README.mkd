@@ -1,5 +1,6 @@
 ## 프로젝트 구조
 
+```
 com.example.project
 ├── config                     // 애플리케이션 전반의 설정
 ├── controller               // 프레젠테이션 레이어: HTTP 요청을 받아 서비스로 전달
@@ -23,3 +24,4 @@ com.example.project
     ├── UserRepository.kt
     ├── UserProfileRepository.kt
     └── UserSettingRepository.kt
+```
