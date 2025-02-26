@@ -1,8 +1,8 @@
 # ninja log v5
 21752	36233	7621588589107454	rnscreens_autolinked_build/CMakeFiles/react_codegen_rnscreens.dir/9353ca742d3c66f7b5cfef24fc99fb29/renderer/components/rnscreens/ComponentDescriptors.cpp.o	4962552b0e0a1159
-4	196	0	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/.cxx/Debug/g22s5a25/x86/CMakeFiles/cmake.verify_globs	68383d38f3552b2e
+6	56	0	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/.cxx/Debug/g22s5a25/x86/CMakeFiles/cmake.verify_globs	68383d38f3552b2e
 33185	39954	7621588626954990	rnasyncstorage_autolinked_build/CMakeFiles/react_codegen_rnasyncstorage.dir/react/renderer/components/rnasyncstorage/EventEmitters.cpp.o	d62e455520f28c7c
-207	2866	7621695961596354	build.ninja	586d09e41fbc58f2
+207	2866	7622612649579300	build.ninja	586d09e41fbc58f2
 14	25062	7621588477552951	CMakeFiles/appmodules.dir/OnLoad.cpp.o	55c4fb66d3bf6645
 75	21260	7621588437910296	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/Props.cpp.o	dcd9d5544aa6eb75
 41239	49911	7621588726547651	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/dea79f5b0845fb29afae5ec8058c1819/safeareacontext/RNCSafeAreaViewShadowNode.cpp.o	8a15a31d354bea51
@@ -58,4 +58,4 @@
 41368	50170	7621588729083761	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/35878dad4f217ec4b36b9367e2c57c76/safeareacontext/ComponentDescriptors.cpp.o	9d649f987df4e3e5
 42791	50513	7621588732490733	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/c65316debd29ac955105865593aa1a3f/renderer/components/safeareacontext/Props.cpp.o	c88b6453d66efc77
 50513	50777	7621588735189085	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/build/intermediates/cxx/Debug/g22s5a25/obj/x86/libreact_codegen_safeareacontext.so	3e20c2abf84d214f
-3	63	0	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/.cxx/Debug/g22s5a25/x86/CMakeFiles/cmake.verify_globs	68383d38f3552b2e
+2	34	0	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/.cxx/Debug/g22s5a25/x86/CMakeFiles/cmake.verify_globs	68383d38f3552b2e

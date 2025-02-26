@@ -61,3 +61,11 @@
 50	5351	0	RNCGeolocationSpec_autolinked_build/CMakeFiles/react_codegen_RNCGeolocationSpec.dir/react/renderer/components/RNCGeolocationSpec/RNCGeolocationSpecJSI-generated.cpp.o	e7d98334483d2db
 52	5363	0	RNGoogleSignInCGen_autolinked_build/CMakeFiles/react_codegen_RNGoogleSignInCGen.dir/react/renderer/components/RNGoogleSignInCGen/RNGoogleSignInCGenJSI-generated.cpp.o	36e9db8c80041502
 5363	6049	7621695899388082	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/build/intermediates/cxx/Debug/g22s5a25/obj/armeabi-v7a/libappmodules.so	ebd1e747d261b499
+10	60	0	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/.cxx/Debug/g22s5a25/armeabi-v7a/CMakeFiles/cmake.verify_globs	ca4996ed70e8ad88
+30	4013	0	RNGoogleSignInCGen_autolinked_build/CMakeFiles/react_codegen_RNGoogleSignInCGen.dir/react/renderer/components/RNGoogleSignInCGen/RNGoogleSignInCGenJSI-generated.cpp.o	36e9db8c80041502
+28	4018	0	RNCGeolocationSpec_autolinked_build/CMakeFiles/react_codegen_RNCGeolocationSpec.dir/react/renderer/components/RNCGeolocationSpec/RNCGeolocationSpecJSI-generated.cpp.o	e7d98334483d2db
+4018	4618	7622579344780958	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/build/intermediates/cxx/Debug/g22s5a25/obj/armeabi-v7a/libappmodules.so	ebd1e747d261b499
+7	47	0	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/.cxx/Debug/g22s5a25/armeabi-v7a/CMakeFiles/cmake.verify_globs	ca4996ed70e8ad88
+28	3352	0	RNGoogleSignInCGen_autolinked_build/CMakeFiles/react_codegen_RNGoogleSignInCGen.dir/react/renderer/components/RNGoogleSignInCGen/RNGoogleSignInCGenJSI-generated.cpp.o	36e9db8c80041502
+26	3355	0	RNCGeolocationSpec_autolinked_build/CMakeFiles/react_codegen_RNCGeolocationSpec.dir/react/renderer/components/RNCGeolocationSpec/RNCGeolocationSpecJSI-generated.cpp.o	e7d98334483d2db
+3355	4212	7622612611850208	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/build/intermediates/cxx/Debug/g22s5a25/obj/armeabi-v7a/libappmodules.so	ebd1e747d261b499

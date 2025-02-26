@@ -28,6 +28,8 @@ src/main/sosamoFront/android/app/.cxx/
 # Node.js 의존성 무시
 node_modules/
 
+.env
+
 # 기존에 있었던 아래 줄은 Gradle 설정 파일이 아닌 빌드 산출물 경로를 무시하는데,
 # 실제 Gradle 설정 파일(예: src/main/sosamoFront/android/build.gradle)은 포함되어야 하므로 제거합니다.
 # src/main/sosamoFront/android/app/build/

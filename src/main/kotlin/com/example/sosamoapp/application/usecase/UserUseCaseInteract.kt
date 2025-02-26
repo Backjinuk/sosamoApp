@@ -10,6 +10,7 @@ import com.example.sosamoapp.domain.dto.userProfile.UserProfileDto
 import com.example.sosamoapp.application.service.userProfileService.UserProfileService
 import com.example.sosamoapp.domain.dto.userSetting.UserSettingDto
 import com.example.sosamoapp.util.JwtUtil
+import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 
 
@@ -21,6 +22,8 @@ class UserUseCaseInteract(
     private var jwtUtil: JwtUtil
 ) : UserUseCase {
 
+
+    @Transactional
     override fun registerUser(userDto: UserDto): UserDto {
         // 1. 회원 정보 등록
         val registeredUser = userService.registerUser(userDto)
