@@ -50,7 +50,7 @@ class UserUseCaseInteract(
         return userService.updateUserInfoByUser(userDto)
     }
 
-
+    @Transactional
     override fun login(userDto: UserDto): LoginResponseDto {
         val userInfo = userService.getFindUserInfoByEmailAndPassword(userDto.email, userDto.passwd)
 

@@ -4,7 +4,7 @@ import Config from "react-native-config";
 
 // Axios 인스턴스 생성
 const axiosPost = axios.create({
-    baseURL: process.env.API_BASE_URL,
+    baseURL: "http://10.0.2.2:8080",
     timeout: 1000,
     headers: {
         'Content-Type': 'application/json'

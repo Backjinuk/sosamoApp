@@ -49,8 +49,6 @@ const JoinForm: React.FC<JoinFormProps> = ({joinEvent, nextState, setNextStage})
 
     function join() {
 
-        console.log('회원가입 정보')
-        console.log(process.env.API_BASE_URL)
         axiosPost.post(`/user/join`, JSON.stringify({
             passwd,
             nickName: name,
