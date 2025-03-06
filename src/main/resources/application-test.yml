@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: test
   datasource:
     url: jdbc:mysql://backjin.iptime.org:3306/app_test_db
     username: app_user
@@ -8,9 +6,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
-      hibernate: org.hibernate.dialect.MySQLDialect
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
   data:
     mongodb:
       database: app_db
@@ -20,5 +19,3 @@ jwt:
   secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
   expiration_time: 3600
   refresh_time: 1209600
-
-

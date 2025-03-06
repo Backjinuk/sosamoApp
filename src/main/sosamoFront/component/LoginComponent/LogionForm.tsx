@@ -60,7 +60,7 @@ export default function LoginForm() {
 */
 
             setTimeout(() => {
-                navigation.navigate('TabNavigation')
+                // navigation.navigate('TabNavigation')
             }, 1000)
         })
     }

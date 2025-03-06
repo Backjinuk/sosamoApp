@@ -73,22 +73,22 @@ class UserSettingServiceIntegrationTest @Autowired constructor(
     @DisplayName("updateUserSetting 메서드 테스트")
     inner class updateUserSettingByUserSettingTests {
 
-            @Test
+        @Test
             fun `수정 성공 - 유효한 userSettingDto는 db에 수정된다`(){
                 //Given
                 val userSettingDto = UserSettingDto().apply {
-                    userSettingSeq = 1
                     userSeq = 1
                     notificationEnabled = UserSettingEnabled.ON
                     eventEnabled = UserSettingEnabled.ON
                     themePreference = ThemePreference.DARK
                 }
 
-                //When
-                val result = userSettingService.updateUserSettingByUserSetting(userSettingDto)
+            val createDefaultUserSettings = userSettingService.createDefaultUserSettings(userSettingDto)
+
+            //When
+                val result = userSettingService.updateUserSettingByUserSetting(createDefaultUserSettings)
 
                 //Then
-                assertEquals(result.userSettingSeq, userSettingDto.userSettingSeq)
                 assertEquals(result.userSeq, userSettingDto.userSeq)
                 assertEquals(result.notificationEnabled, userSettingDto.notificationEnabled)
                 assertEquals(result.eventEnabled, userSettingDto.eventEnabled)

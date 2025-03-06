@@ -10,7 +10,7 @@ import styles from "../CommunityComponent/styles.ts";
 import CommunityAddForm from "../CommunityComponent/CommunityAddForm.tsx";
 import CommunityInfoView from "../CommunityComponent/CommunityInfoView.tsx";
 import Markers from "../CommunityComponent/Markers.tsx";
-import BottomSheet, {BottomSheetModal, BottomSheetModalProvider, BottomSheetView} from "@gorhom/bottom-sheet";
+import {BottomSheetModal, BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
 export default function MapMain() {
 
@@ -445,56 +445,56 @@ export default function MapMain() {
             </NaverMapView>
 
 
-            <BottomSheetModalProvider>
-                <BottomSheetModal
-                    ref={bottomSheetModalRef}
-                    index={0}
-                    snapPoints={snapPoints}
-                    onChange={handleSheetChanges}
-                    backgroundComponent={({ style }) => (
-                        <View
-                            style={[
-                                style,
-                                {
-                                    backgroundColor: '#fff',
-                                    shadowColor: '#000',
-                                    shadowOffset: { width: 0, height: 2 },
-                                    shadowOpacity: 0.1,
-                                    shadowRadius: 6,
-                                    elevation : 10,
-                                    borderRadius : 14,
-                                },
-                            ]}
-                        />
-                    )}
-                >
-                    {position && !openModal ? (
-                        <View>
-                            <Text>{position.title}</Text>
-                            <Button title="등록" onPress={addMoim}/>
-                            <Button title="길찾기" onPress={() => findRoute(position)}/>
-                            <Button
-                                title="닫기"
-                                onPress={() => {
-                                    privateSetPosition(undefined);
-                                }}
-                            />
-                        </View>
-                    ) : (
-                        openModal && (
+            {/*<BottomSheetModalProvider>*/}
+            {/*    <BottomSheetModal*/}
+            {/*        ref={bottomSheetModalRef}*/}
+            {/*        index={0}*/}
+            {/*        snapPoints={snapPoints}*/}
+            {/*        onChange={handleSheetChanges}*/}
+            {/*        backgroundComponent={({ style }) => (*/}
+            {/*            <View*/}
+            {/*                style={[*/}
+            {/*                    style,*/}
+            {/*                    {*/}
+            {/*                        backgroundColor: '#fff',*/}
+            {/*                        shadowColor: '#000',*/}
+            {/*                        shadowOffset: { width: 0, height: 2 },*/}
+            {/*                        shadowOpacity: 0.1,*/}
+            {/*                        shadowRadius: 6,*/}
+            {/*                        elevation : 10,*/}
+            {/*                        borderRadius : 14,*/}
+            {/*                    },*/}
+            {/*                ]}*/}
+            {/*            />*/}
+            {/*        )}*/}
+            {/*    >*/}
+            {/*        {position && !openModal ? (*/}
+            {/*            <View>*/}
+            {/*                <Text>{position.title}</Text>*/}
+            {/*                <Button title="등록" onPress={addMoim}/>*/}
+            {/*                <Button title="길찾기" onPress={() => findRoute(position)}/>*/}
+            {/*                <Button*/}
+            {/*                    title="닫기"*/}
+            {/*                    onPress={() => {*/}
+            {/*                        privateSetPosition(undefined);*/}
+            {/*                    }}*/}
+            {/*                />*/}
+            {/*            </View>*/}
+            {/*        ) : (*/}
+            {/*            openModal && (*/}
 
-                            <View style={styles.InfoViewContainer}>
-                                <CommunityInfoView
-                                    marker={marker}
-                                    viewMode={viewMode}
-                                    setCommuPosition={setCommuPosition}
-                                />
-                            </View>
+            {/*                <View style={styles.InfoViewContainer}>*/}
+            {/*                    <CommunityInfoView*/}
+            {/*                        marker={marker}*/}
+            {/*                        viewMode={viewMode}*/}
+            {/*                        setCommuPosition={setCommuPosition}*/}
+            {/*                    />*/}
+            {/*                </View>*/}
 
-                        )
-                    )}
-                </BottomSheetModal>
-            </BottomSheetModalProvider>
+            {/*            )*/}
+            {/*        )}*/}
+            {/*    </BottomSheetModal>*/}
+            {/*</BottomSheetModalProvider>*/}
 
 
             <CommunityAddForm

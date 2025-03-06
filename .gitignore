@@ -23,7 +23,6 @@ src/main/sosamoFront/android/app/.cxx/
 **/android/app/build/
 src/main/sosamoFront/android/.gradle/
 src/main/sosamoFront/android/build/
-src/main/sosamoFront/android/app/.cxx/
 /sosamoFront/android/app/.cxx/
 # Node.js 의존성 무시
 node_modules/

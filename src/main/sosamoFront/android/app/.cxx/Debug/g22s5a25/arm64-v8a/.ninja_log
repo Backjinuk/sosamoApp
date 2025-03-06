@@ -69,3 +69,15 @@
 247	6378	0	RNCGeolocationSpec_autolinked_build/CMakeFiles/react_codegen_RNCGeolocationSpec.dir/react/renderer/components/RNCGeolocationSpec/RNCGeolocationSpecJSI-generated.cpp.o	5ce7fb829af749d6
 249	6381	0	RNGoogleSignInCGen_autolinked_build/CMakeFiles/react_codegen_RNGoogleSignInCGen.dir/react/renderer/components/RNGoogleSignInCGen/RNGoogleSignInCGenJSI-generated.cpp.o	7bd9dbd98390308d
 6381	7129	7622612548482100	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/build/intermediates/cxx/Debug/g22s5a25/obj/arm64-v8a/libappmodules.so	16fc227336d10de
+42	148	0	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/.cxx/Debug/g22s5a25/arm64-v8a/CMakeFiles/cmake.verify_globs	9fab18b770f9d061
+85	6073	0	RNCGeolocationSpec_autolinked_build/CMakeFiles/react_codegen_RNCGeolocationSpec.dir/react/renderer/components/RNCGeolocationSpec/RNCGeolocationSpecJSI-generated.cpp.o	5ce7fb829af749d6
+88	6073	0	RNGoogleSignInCGen_autolinked_build/CMakeFiles/react_codegen_RNGoogleSignInCGen.dir/react/renderer/components/RNGoogleSignInCGen/RNGoogleSignInCGenJSI-generated.cpp.o	7bd9dbd98390308d
+6073	7634	7624221615670644	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/build/intermediates/cxx/Debug/g22s5a25/obj/arm64-v8a/libappmodules.so	16fc227336d10de
+54	153	0	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/.cxx/Debug/g22s5a25/arm64-v8a/CMakeFiles/cmake.verify_globs	9fab18b770f9d061
+189	6503	0	RNCGeolocationSpec_autolinked_build/CMakeFiles/react_codegen_RNCGeolocationSpec.dir/react/renderer/components/RNCGeolocationSpec/RNCGeolocationSpecJSI-generated.cpp.o	5ce7fb829af749d6
+192	6503	0	RNGoogleSignInCGen_autolinked_build/CMakeFiles/react_codegen_RNGoogleSignInCGen.dir/react/renderer/components/RNGoogleSignInCGen/RNGoogleSignInCGenJSI-generated.cpp.o	7bd9dbd98390308d
+6504	7267	7624272862394478	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/build/intermediates/cxx/Debug/g22s5a25/obj/arm64-v8a/libappmodules.so	16fc227336d10de
+29	95	0	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/.cxx/Debug/g22s5a25/arm64-v8a/CMakeFiles/cmake.verify_globs	9fab18b770f9d061
+64	4539	0	RNGoogleSignInCGen_autolinked_build/CMakeFiles/react_codegen_RNGoogleSignInCGen.dir/react/renderer/components/RNGoogleSignInCGen/RNGoogleSignInCGenJSI-generated.cpp.o	7bd9dbd98390308d
+62	4540	0	RNCGeolocationSpec_autolinked_build/CMakeFiles/react_codegen_RNCGeolocationSpec.dir/react/renderer/components/RNCGeolocationSpec/RNCGeolocationSpecJSI-generated.cpp.o	5ce7fb829af749d6
+4540	5218	7624393232614859	D:/intellij-workspace/sosamoApp/src/main/sosamoFront/android/app/build/intermediates/cxx/Debug/g22s5a25/obj/arm64-v8a/libappmodules.so	16fc227336d10de

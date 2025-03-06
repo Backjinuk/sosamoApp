@@ -220,20 +220,20 @@ class UserProfileServiceIntegrationTest @Autowired constructor(
         fun `성공적인 수정 - 유효한 UserProfileDto는 db에 저장되어야 한다`() {
             // Given
             val userProfileDto = UserProfileDto().apply {
-                userProfileSeq = 100
                 userSeq = 200
                 fileSeq = 300
                 introduction = "안녕하세요, 저는 사용자입니다."
             }
 
+            val savedUserProfile = userProfileService.createDefaultUserProfile(userProfileDto);
+
             // When
-            val returnValue = userProfileService.updateUserProfileByUserProfile(userProfileDto)
+            val returnValue = savedUserProfile?.let { userProfileService.updateUserProfileByUserProfile(it) }
 
             // Then
-            assertEquals(returnValue.userProfileSeq, userProfileDto.userProfileSeq)
-            assertEquals(returnValue.userSeq, userProfileDto.userSeq)
-            assertEquals(returnValue.fileSeq, userProfileDto.fileSeq)
-            assertEquals(returnValue.introduction, userProfileDto.introduction)
+            assertEquals(returnValue?.userSeq, userProfileDto.userSeq)
+            assertEquals(returnValue?.fileSeq, userProfileDto.fileSeq)
+            assertEquals(returnValue?.introduction, userProfileDto.introduction)
         }
 
         @Test

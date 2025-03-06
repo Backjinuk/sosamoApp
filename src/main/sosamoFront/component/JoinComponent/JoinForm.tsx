@@ -56,7 +56,7 @@ const JoinForm: React.FC<JoinFormProps> = ({joinEvent, nextState, setNextStage})
         })).then((res) => {
             if (res) {
                 Alert.alert('회원가입에 성공하였습니다.');
-                navigation.navigate('LoginMain');
+                // navigation.navigate('LoginMain');
             } else {
                 Alert.alert('이미 회원가입된 계정입니다.');
             }
