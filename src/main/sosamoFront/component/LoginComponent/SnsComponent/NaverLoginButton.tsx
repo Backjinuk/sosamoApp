@@ -1,25 +1,25 @@
 import React, {useState} from 'react';
 import {TouchableOpacity, Image, Alert} from 'react-native';
 import Config from "react-native-config";
-// import NaverLogin, {GetProfileResponse, NaverLoginResponse} from "@react-native-seoul/naver-login";
-import axios from "axios";
+import NaverLogin, {GetProfileResponse, NaverLoginResponse} from "@react-native-seoul/naver-login";
 import {NativeStackNavigationProp} from "@react-navigation/native-stack";
 import {RootStackParamList} from "../../../Types/RootStackParamList.ts";
 import {useNavigation} from "@react-navigation/native";
 import axiosPost from "../../../Util/AxiosUtil.ts";
 import {setToken} from "../../../Util/JwtTokenUtil.ts";
+import {NAVER_KEY, NAVER_SECRET_KEY} from "@env";
 
 
 // @ts-ignore
 export default function NaverLoginButton({ styles }){
-    /*   const [success, setSuccessResponse]  = useState<NaverLoginResponse['successResponse']>();
+       const [success, setSuccessResponse]  = useState<NaverLoginResponse['successResponse']>();
        const [failure, setFailureResponse]  = useState<NaverLoginResponse['failureResponse']>();
        const [getProfileRes, setGetProfileRes] = useState<GetProfileResponse>();
 
        const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-       const consumerKey = Config.NAVER_KEY as string;
-       const consumerSecret = Config.NAVER_SECRET_KEY as string;
-       const appName = 'MoGakCo';
+       const consumerKey = NAVER_KEY;
+       const consumerSecret = NAVER_SECRET_KEY;
+       const appName = 'sosamoFront';
        const serviceUrlSchemeIOS  = 'navertest' as string;
 
 
@@ -62,7 +62,7 @@ export default function NaverLoginButton({ styles }){
                        console.log('User cancelled the login process.');
                        // 사용자가 취소했을 때 처리할 로직 추가
                    } else {
-                       console.error('Login failed:', lastErrorDescriptionFromNaverSDK);
+                       console.error('Login failed:', response.failureResponse);
                        // 로그인 실패 시 처리할 로직 추가
                    }
                    setFailureResponse(response.failureResponse);
@@ -73,38 +73,38 @@ export default function NaverLoginButton({ styles }){
        };
 
        const loginAxsio = () => {
-           axiosPost.post(Config.API_BASE_URL + '/user/userJoin', JSON.stringify({
-               userId: getProfileRes?.response.id,
-               email : getProfileRes?.response.email,
-               userName : getProfileRes?.response.name,
-               phoneNum : getProfileRes?.response.mobile,
-               userType : "Naver"
-           }), {
+          console.log("getProfileRes", getProfileRes);
 
-               headers : {
-                   "Content-Type" : "application/json"
-               }
-
-           }).then(res => {
-
-               setToken(res.data)
-
-               if(res.data['searchUser'] === 'true'){
-                   Alert.alert("회원가입이 완료 되었습니다.")
-               }else{
-                   // navigation.navigate("TabNavigation")
-               }
-
-           })
-       }*/
+           // axiosPost.post('/user/join', JSON.stringify({
+           //     userId: getProfileRes?.response.id,
+           //     email : getProfileRes?.response.email,
+           //     userName : getProfileRes?.response.name,
+           //     phoneNum : getProfileRes?.response.mobile,
+           //     userType : "Naver"
+           // }), {
+           //
+           //     headers : {
+           //         "Content-Type" : "application/json"
+           //     }
+           //
+           // }).then(res => {
+           //
+           //     setToken(res.data)
+           //
+           //     if(res.data['searchUser'] === 'true'){
+           //         Alert.alert("회원가입이 완료 되었습니다.")
+           //     }else{
+           //         // navigation.navigate("TabNavigation")
+           //     }
+           //
+           // })
+       }
 
 
 
     return (
-        <TouchableOpacity style={styles.socialButton} /*onPress={() => login()}*/>
-
+        <TouchableOpacity style={styles.socialButton} onPress={() => login()}>
             <Image source={require('../assets/naver.png')} style={styles.icon} />
-
         </TouchableOpacity>
     );
 };
