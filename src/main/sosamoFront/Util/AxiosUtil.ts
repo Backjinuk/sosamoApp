@@ -1,10 +1,10 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {API_URL} from '@env';
+import { API_BASE_URL } from "@env";
 
 // Axios 인스턴스 생성
 const axiosPost = axios.create({
-    baseURL: API_URL,
+    baseURL: API_BASE_URL,
     timeout: 1000,
     headers: {
         'Content-Type': 'application/json'

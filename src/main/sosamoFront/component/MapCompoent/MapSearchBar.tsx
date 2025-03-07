@@ -9,7 +9,6 @@ export default function MapSearchBar(props: any) {
         // 배경 컴포넌트에 opacity 적용
 
         <View style={styles.searchBox}>
-
             <TextInput
                 style={styles.input2}
                 placeholder="장소, 버스, 지하철, 주소 검색"
