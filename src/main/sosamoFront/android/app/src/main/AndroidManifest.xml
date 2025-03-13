@@ -10,6 +10,11 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme"
       android:supportsRtl="true">
+
+        <meta-data android:name="com.naver.maps.map.CLIENT_ID" android:value="@string/naver_map_id" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
@@ -23,8 +28,7 @@
         </intent-filter>
       </activity>
 
-        <meta-data android:name="com.naver.maps.map.CLIENT_ID" android:value="@string/naver_app_map" />
-        <meta-data android:name="com.naver.maps.map.CLIENT_TYPE" android:value="gov" />
+        <meta-data android:name="com.naver.maps.map.CLIENT_ID" android:value="@string/naver_map_id" />
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
     </application>
