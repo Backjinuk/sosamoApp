@@ -112,6 +112,44 @@ const createStyles = () => {
       fontSize: 14,
       color: '#ff6a00',
     },
+
+    centeredView: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'rgba(0,0,0,0.5)', // 배경을 반투명하게 설정
+    },
+    modalView: {
+      margin: 5,
+      backgroundColor: 'white',
+      borderRadius: 10,
+      padding: 35,
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 0 },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 5,
+      width : '70%',
+      height : '70%'
+    },
+    button: {
+      borderRadius: 5,
+      padding: 10,
+      elevation: 2,
+    },
+    buttonClose: {
+      backgroundColor: '#2196F3',
+    },
+    textStyle: {
+      color: 'white',
+      fontWeight: 'bold',
+      textAlign: 'center',
+    },
+    modalText: {
+      marginBottom: 15,
+      textAlign: 'center',
+    }
   });
 };
 
