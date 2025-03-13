@@ -12,8 +12,7 @@ import {jwtDecode} from 'jwt-decode';
 export default function KakaoLoginButton({styles}) {
   const [result, setResult] = useState<string>('');
   const api = Config.API_BASE_URL;
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const signInWithKakao = async (): Promise<void> => {
     try {
@@ -29,6 +28,7 @@ export default function KakaoLoginButton({styles}) {
   const LoginAxois = () => {
     const value = jwtDecode(result);
 
+/*
     axios
       .post(
         api + '/user/userJoin',
@@ -51,6 +51,7 @@ export default function KakaoLoginButton({styles}) {
           // navigation.navigate('TabNavigation');
         }
       });
+*/
   };
 
   const signOutWithKakao = async (): Promise<void> => {

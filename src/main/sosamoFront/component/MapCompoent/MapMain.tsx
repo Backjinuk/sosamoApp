@@ -71,9 +71,6 @@ export default function MapMain() {
         });
     };
 
-
-
-
     return (
 
         <View style={{flex: 1}}>
