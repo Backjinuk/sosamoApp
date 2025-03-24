@@ -34,9 +34,9 @@ export default function KakaoLoginButton({styles}) {
 
         axiosPost.post('/user/join', JSON.stringify({
             // 일시적으로 카카오로그인시 더미 이메일 사용
+            nickName: nickName,
             email: "DummyEmail@Kakao.com",
             ciKey: value.sub,
-            nickName: nickName,
             passwd : passwd,
             joinType: 'KAKAO'
         })).then(res => {
