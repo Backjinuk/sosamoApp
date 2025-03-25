@@ -3,6 +3,8 @@ package com.example.sosamoapp.domain.entity.userSetting
 import com.example.sosamoapp.domain.enums.ThemePreference
 import com.example.sosamoapp.domain.enums.UserSettingEnabled
 import jakarta.persistence.Entity
+import jakarta.persistence.EnumType
+import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
@@ -23,13 +25,15 @@ open class UserSettingEntity {
     open var userSeq: Long = 0
 
     // 알림 설정
+    @Enumerated(EnumType.STRING)
     open var notificationEnabled: UserSettingEnabled = UserSettingEnabled.OFF
 
     // 이벤트 알림 설정
+    @Enumerated(EnumType.STRING)
     open var eventEnabled: UserSettingEnabled = UserSettingEnabled.OFF
 
     // 테마 설정
+    @Enumerated(EnumType.STRING)
     open var themePreference: ThemePreference = ThemePreference.LIGTH
-
 
 }

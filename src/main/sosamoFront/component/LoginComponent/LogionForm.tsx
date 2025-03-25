@@ -13,10 +13,7 @@ import {getToken, setToken} from "../../Util/JwtTokenUtil.ts";
 
 export default function LoginForm() {
     const styles = createStyles()
-/*
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-*/
-    const api = Config.API_BASE_URL;
     const [userId ,setUserId] = useState('');
     const [passwd, setPasswd] = useState('');
 
@@ -38,26 +35,24 @@ export default function LoginForm() {
 
 
     const userLogin = () => {
-        axiosPost.post(api+'/user/userLogin', JSON.stringify({
-            userId,
+        axiosPost.post('/user/login', JSON.stringify({
+            email : userId,
             passwd
-        }), {
-            headers : {
-                "Content-Type" : "application/json"
-            }
-        }).then(async (res) => {
+        })).then(async (res) => {
             if (res.data != null) {
                 Alert.alert("로그인 되었습니다.")
 
                 setToken(res.data)
 
                 setTimeout(() => {
-                    // navigation.navigate('TabNavigation')
+                    navigation.navigate('TabNavigation')
                 }, 1000)
-
             }
         }).catch(e => {
             console.log(e);
+            setTimeout(() => {
+                // navigation.navigate('TabNavigation')
+            }, 1000)
         })
     }
 

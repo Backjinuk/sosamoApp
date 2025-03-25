@@ -21,6 +21,7 @@ class UserRepositoryImpl(
 
     private val qUserTokenEntity: QUserTokenEntity = QUserTokenEntity.userTokenEntity
 
+
     override fun userJoin(user: UserEntity): UserEntity {
         entityManager.persist(user)
         return user

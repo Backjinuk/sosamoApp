@@ -1,6 +1,6 @@
 package com.example.sosamoapp.user.user.service
 
-import UserService
+import com.example.sosamoapp.application.service.userService.UserService
 import com.example.sosamoapp.domain.enums.UserJoinType
 import com.example.sosamoapp.domain.enums.UserRole
 import com.example.sosamoapp.domain.dto.user.UserDto
