@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NAVER_KEY, NAVER_SECRET_KEY } from "@env";
 import SnsAdditionalInfoModal from "../SnsAdditionalInfoModal";
 import axiosPost from "../../../Util/AxiosUtil";
-import { setToken } from "../../../Util/JwtTokenUtil";
+import {getToken, setToken} from "../../../Util/JwtTokenUtil";
 
 // @ts-ignore
 export default function NaverLoginButton({ styles }) {
@@ -73,7 +73,16 @@ export default function NaverLoginButton({ styles }) {
             const res = await axiosPost.post('/user/join', JSON.stringify(payload));
             if (res.data) {
                 Alert.alert("회원가입이 완료 되었습니다.");
-                setToken(res.data['token']);
+
+                console.log('res.data', res.data);
+
+                const token = {
+                    AccessToken: res.data['token'],
+                    RefreshToken: res.data['token'],
+                }
+
+
+                setToken(token);
                 setModalVisible(false);
                 navigation.navigate('TabNavigation');
             } else {

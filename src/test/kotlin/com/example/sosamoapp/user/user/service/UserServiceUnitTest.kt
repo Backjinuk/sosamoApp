@@ -677,8 +677,74 @@ class UserServiceUnitTest {
         }
     }
 
+    @Nested
+    @DisplayName("getUserInfoByJwtToken 메서드 테스트")
+    inner class GetUserInfoByJwtTokenTests {
+
+        @Test
+        @DisplayName("성공적으로 사용자 정보를 조회")
+        fun `성공적으로 사용자 정보를 조회`() {
+            // Given
+            val userTokenEntity = UserTokenEntity().apply {
+                refreshToken = "validRefreshToken"
+            }
+
+            val userEntity = UserEntity().apply {
+                userSeq = 1L
+                email = "dumyEmail@test.com"
+                passwd = "ValidPass123"
+                nickName = "UserNick"
+                userRole = UserRole.User
+                joinType = UserJoinType.GITHUB
+            }
 
 
+            val userDto = UserDto().apply {
+                email = userEntity.email
+                passwd = userEntity.passwd
+                nickName = userEntity.nickName
+                userRole = userEntity.userRole
+                joinType = userEntity.joinType
+            }
+
+            every { userRepository.getFindUserInfoByJwtToken(userTokenEntity) } returns userEntity
+
+            every { modelMapper.map(userEntity, UserDto::class.java) } returns userDto
+
+            //When
+           val resultValue = userService.getFindUserInfoByJwtToken(userTokenEntity)
+
+            //Then
+            assertEquals(userDto.email, resultValue.email)
+            assertEquals(userDto.passwd, resultValue.passwd)
+            assertEquals(userDto.nickName, resultValue.nickName)
+            assertEquals(userDto.userRole, resultValue.userRole)
+            assertEquals(userDto.joinType, resultValue.joinType)
+
+            verify(exactly = 1) { userRepository.getFindUserInfoByJwtToken(userTokenEntity) }
+            verify(exactly = 1) { modelMapper.map(userEntity, UserDto::class.java) }
+        }
+
+        @Test
+        @DisplayName("사용자가 존재하지 않아 조회 실패")
+        fun `사용자가 존재하지 않아 조회 실패`() {
+            val userTokenEntity = UserTokenEntity().apply {
+                refreshToken = "validRefreshToken"
+            }
+
+            val userEntity: UserEntity = UserEntity()
+
+            every { userRepository.getFindUserInfoByJwtToken(userTokenEntity) } throws IllegalArgumentException("존재하지 않는 사용자 입니다.")
+
+            val exception = assertThrows<IllegalArgumentException> {
+                userService.getFindUserInfoByJwtToken(userTokenEntity)
+            }
+
+            assertTrue(exception.message!!.contains("존재하지 않는 사용자 입니다."))
+        }
+
+
+    }
 }
 
 

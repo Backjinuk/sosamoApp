@@ -106,5 +106,20 @@ class UserRepositoryImpl(
 
         return resultValue
     }
+
+
+    override fun getFindUserInfoByJwtToken(userTokenEntity: UserTokenEntity): UserEntity {
+        val resultValue = queryFactory.select(qUserEntity)
+            .from(qUserTokenEntity)
+            .join(qUserEntity).on(qUserTokenEntity.userSeq.eq(qUserEntity.userSeq))
+            .where(qUserTokenEntity.refreshToken.eq(userTokenEntity.refreshToken))
+            .fetchOne();
+
+        if (resultValue == null) {
+            throw IllegalArgumentException("존재하지 않는 사용자 입니다.")
+        }
+
+        return resultValue
+    }
 }
 
