@@ -34,7 +34,7 @@ class UserSettingServiceIntegrationTest @Autowired constructor(
                 userSeq = 1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
             //When
@@ -55,7 +55,7 @@ class UserSettingServiceIntegrationTest @Autowired constructor(
                 userSeq = -1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
             //When
@@ -131,7 +131,7 @@ class UserSettingServiceIntegrationTest @Autowired constructor(
                 userSeq = 1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
              userSettingService.createDefaultUserSettings(userSettingDto)

@@ -47,14 +47,14 @@ class UserProfileServiceUnitTest {
                 userSeq = 1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
             val userSettingEntity = UserSettingEntity().apply {
                 userSeq = 1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
             justRun { validatorUtil.validator(userSettingDto) }
@@ -77,7 +77,7 @@ class UserProfileServiceUnitTest {
                 userSeq = -1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
             every { validatorUtil.validator(userSettingDto) } throws IllegalArgumentException("유저의 시퀸스는 양수여야 합니다.")
@@ -103,7 +103,7 @@ class UserProfileServiceUnitTest {
                 userSeq = 1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
             val userSettingEntity = UserSettingEntity().apply {
@@ -111,7 +111,7 @@ class UserProfileServiceUnitTest {
                 userSeq = 1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
             justRun { validatorUtil.validator(userSettingDto) }
@@ -135,7 +135,7 @@ class UserProfileServiceUnitTest {
                 userSeq = -1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
             every { validatorUtil.validator(userSettingDto) } throws IllegalArgumentException("유저의 시퀸스는 양수여야 합니다.")
@@ -157,7 +157,7 @@ class UserProfileServiceUnitTest {
                 userSeq = 1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
             justRun { validatorUtil.validator(userSettingDto) }
@@ -189,7 +189,7 @@ class UserProfileServiceUnitTest {
                 userSeq = 1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
             val userSettingEntity = UserSettingEntity().apply {
@@ -197,7 +197,7 @@ class UserProfileServiceUnitTest {
                 userSeq = 1
                 notificationEnabled = UserSettingEnabled.OFF
                 eventEnabled = UserSettingEnabled.OFF
-                themePreference = ThemePreference.LIGTH
+                themePreference = ThemePreference.LIGHT
             }
 
             every { userSettingRepository.findUserSettingByUserSeq(updateUserSeq) } returns userSettingEntity

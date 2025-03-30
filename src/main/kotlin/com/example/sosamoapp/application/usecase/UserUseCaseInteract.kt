@@ -9,9 +9,11 @@ import com.example.sosamoapp.application.service.userService.UserService
 import com.example.sosamoapp.domain.dto.userProfile.UserProfileDto
 import com.example.sosamoapp.application.service.userProfileService.UserProfileService
 import com.example.sosamoapp.domain.dto.userSetting.UserSettingDto
+import com.example.sosamoapp.domain.entity.user.UserTokenEntity
 import com.example.sosamoapp.util.JwtUtil
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
+import java.time.LocalDateTime
 
 
 @Service
@@ -73,4 +75,33 @@ class UserUseCaseInteract(
         }
 
     }
+
+   @Transactional
+   fun getFindUserInfoByJwtToken(userTokenDto: UserTokenDto): UserDto {
+
+        // 1. jwt 토큰에서 유저 정보 추출
+        val userInfo = userService.getFindUserInfoByJwtToken(userTokenDto)
+
+       val now = LocalDateTime.now()
+       val expireDt = jwtUtil.getExpireDt(userTokenDto.refreshToken)
+
+       // 2. jwt 만료 여부 체크
+
+
+
+
+
+
+        return userInfo
+    }
+
+
+
+
+
+
+
+
+
+
 }

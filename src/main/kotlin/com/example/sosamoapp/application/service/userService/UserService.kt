@@ -3,6 +3,7 @@ package com.example.sosamoapp.application.service.userService
 import com.example.sosamoapp.domain.repository.UserRepository
 import com.example.sosamoapp.domain.dto.user.UserDto
 import com.example.sosamoapp.domain.dto.user.UserTokenDto
+import com.example.sosamoapp.domain.entity.user.QUserTokenEntity.userTokenEntity
 import com.example.sosamoapp.domain.entity.user.UserEntity
 import com.example.sosamoapp.domain.entity.user.UserTokenEntity
 import com.example.sosamoapp.util.ValidatorUtil
@@ -32,6 +33,11 @@ class UserService(
 
         val userTokenEntity = userRepository.addUserTokenByUserSeq(modelMapper.map(userTokenDto, UserTokenEntity::class.java))
         return modelMapper.map(userTokenEntity, UserTokenDto::class.java)
+    }
+
+    fun getFindUserInfoByJwtToken(userTokenDto : UserTokenDto): UserDto {
+        val userEntity = userRepository.getFindUserInfoByJwtToken(modelMapper.map(userTokenDto, UserTokenEntity::class.java))
+        return modelMapper.map(userEntity, UserDto::class.java)
     }
 
     fun updateUserInfoByUser(userDto: UserDto): UserDto {

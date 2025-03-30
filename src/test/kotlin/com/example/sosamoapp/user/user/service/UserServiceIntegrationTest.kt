@@ -5,6 +5,7 @@ import com.example.sosamoapp.domain.enums.UserJoinType
 import com.example.sosamoapp.domain.enums.UserRole
 import com.example.sosamoapp.domain.dto.user.UserDto
 import com.example.sosamoapp.domain.dto.user.UserTokenDto
+import com.example.sosamoapp.domain.entity.user.UserTokenEntity
 import com.example.sosamoapp.domain.repository.UserSettingRepository
 import jakarta.validation.Validator
 import org.junit.jupiter.api.*
@@ -270,7 +271,7 @@ class UserServiceIntegrationTest @Autowired constructor(
             }
 
             // When: 업데이트 메서드 호출 (통합 테스트이므로 실제 빈들이 동작)
-            val updatedUserDto = userService.updateUserInfoByUser( updateDto)
+            val updatedUserDto = userService.updateUserInfoByUser(updateDto)
 
             // Then: 업데이트된 결과 검증
             assertEquals(updateDto.email, updatedUserDto.email)
@@ -326,7 +327,7 @@ class UserServiceIntegrationTest @Autowired constructor(
 
             // When & Then: Validator에서 예외 발생
             val exception = assertThrows<IllegalArgumentException> {
-                userService.updateUserInfoByUser( invalidDto)
+                userService.updateUserInfoByUser(invalidDto)
             }
             assertTrue(exception.message!!.contains("이메일 형식이 유효하지 않습니다."))
         }
@@ -401,21 +402,52 @@ class UserServiceIntegrationTest @Autowired constructor(
             assertNotNull(result)
         }
 
-       @Test
+        @Test
         fun `존재하지 않는 사용자 정보 조회 시 실패`() {
-           // Given: DB에 존재하지 않는 사용자 정보 사용
-           val email = "valid.email@example.com"
-           val passwd = "ValidPass123"
+            // Given: DB에 존재하지 않는 사용자 정보 사용
+            val email = "valid.email@example.com"
+            val passwd = "ValidPass123"
 
-           val result = assertThrows<InvalidDataAccessApiUsageException> {
-               userService.getFindUserInfoByEmailAndPassword(email, passwd)
-           }
+            val result = assertThrows<InvalidDataAccessApiUsageException> {
+                userService.getFindUserInfoByEmailAndPassword(email, passwd)
+            }
 
-           assertTrue(result.message!!.contains("존재하지 않는 사용자 입니다."))
-       }
+            assertTrue(result.message!!.contains("존재하지 않는 사용자 입니다."))
+        }
     }
 
 
+    @Nested
+    @DisplayName("getFindUserInfoByJwtToken 메서드 테스트")
+    inner class getFindUserInfoByJwtToken {
 
+        @Test
+        fun `JWT 토큰으로 사용자 정보 조회`() {
+            val userTokenDto: UserTokenDto = UserTokenDto().apply {
+                refreshToken =
+                    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyU2VxIjoyLCJlbWFpbCI6ImJhY2tqMTIzQG5hdmVyLmNvbSIsImlhdCI6MTc0MjkwNDI4MywiZXhwIjoxNzQyOTA3ODgzfQ.6zRhJw62SncS00w502ORlyeQjduauLqArmlSVQbgaqc"
+            }
+
+            val userDto = userService.getFindUserInfoByJwtToken(userTokenDto)
+
+            // Then: 조회된 값이 null이 아니고, 필드들이 올바르게 설정되었는지 검증
+            assertNotNull(userDto)
+        }
+
+
+        @Test
+        fun `JWT 토큰으로 사용자 정보 조회 실패`() {
+            val userTokenEntity: UserTokenDto = UserTokenDto().apply {
+                refreshToken =
+                    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyU2VxIjoyLCJlbWFpbCI6ImJhY2tqMTIzQG5hdmVyLmNvbSIsImlhdCI6MTc0MjkwNDI4MywiZXhwIjoxNzQyOTA3ODgzfQ.6zRhJw62SncS00w502ORlyeQjduauLqArmlSVQbgaqcasdf"
+            }
+
+            val result = assertThrows<InvalidDataAccessApiUsageException> {
+                userService.getFindUserInfoByJwtToken(userTokenEntity)
+            }
+
+            assertTrue(result.message!!.contains("존재하지 않는 사용자 입니다."))
+        }
+    }
 }
 

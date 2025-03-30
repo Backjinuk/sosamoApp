@@ -34,6 +34,6 @@ open class UserSettingEntity {
 
     // 테마 설정
     @Enumerated(EnumType.STRING)
-    open var themePreference: ThemePreference = ThemePreference.LIGTH
+    open var themePreference: ThemePreference = ThemePreference.LIGHT
 
 }

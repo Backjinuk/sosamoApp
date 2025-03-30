@@ -20,5 +20,5 @@ open class UserSettingDto {
     open var eventEnabled: UserSettingEnabled = UserSettingEnabled.OFF
 
     // 테마 설정
-    open var themePreference: ThemePreference = ThemePreference.LIGTH
+    open var themePreference: ThemePreference = ThemePreference.LIGHT
 }
