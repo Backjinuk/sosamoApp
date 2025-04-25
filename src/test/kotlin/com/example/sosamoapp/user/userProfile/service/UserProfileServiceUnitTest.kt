@@ -1,12 +1,12 @@
 package com.example.sosamoapp.user.userProfile.service
 
-import ValidatorUtil
 import com.example.sosamoapp.domain.dto.userProfile.SocialMediaPlatFormDto
 import com.example.sosamoapp.domain.dto.userProfile.UserProfileDto
 import com.example.sosamoapp.domain.entity.userProfile.SocialMediaPlatFormEntity
 import com.example.sosamoapp.domain.entity.userProfile.UserProfileEntity
 import com.example.sosamoapp.domain.repository.UserProfileRepository
 import com.example.sosamoapp.application.service.userProfileService.UserProfileService
+import com.example.sosamoapp.util.ValidatorUtil
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs

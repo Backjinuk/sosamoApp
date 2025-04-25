@@ -63,7 +63,7 @@ export default function LoginMain(){
                 <Text style={styles.signupButtonText}>이메일로 회원가입</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={ () => { {/*navigation.navigate("LoginForm");*/} }}>
+            <TouchableOpacity onPress={ () => { {navigation.navigate("LoginForm");} }}>
                 <Text style={styles.loginText}>이미 회원이신가요? 로그인</Text>
             </TouchableOpacity>
 

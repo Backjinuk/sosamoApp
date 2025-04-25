@@ -11,6 +11,8 @@ import {RootStackParamList} from "./Types/RootStackParamList.ts";
 import {SafeAreaView, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import JoinFormMain from "./component/JoinComponent/JoinFormMain.tsx";
+import LoginForm from "./component/LoginComponent/LogionForm.tsx";
+import TabNavigation from "./component/TabComponent/TabNavigation.tsx";
 
 function App(): React.JSX.Element {
     const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -21,10 +23,10 @@ function App(): React.JSX.Element {
                 <Stack.Navigator initialRouteName="LoginMain" screenOptions={{headerShown: false}}>
                     <Stack.Screen name="Join" component={JoinFormMain} options={{headerShown: false}}/>
                     <Stack.Screen name="LoginMain" component={LoginMain} options={{headerShown: false}}/>
+                    <Stack.Screen name="LoginForm" component={LoginForm} options={{headerShown: false}}/>
+                    <Stack.Screen name="TabNavigation" component={TabNavigation} options={{headerShown: false}}/>
                     {/*
-                        <Stack.Screen name="LoginForm" component={LoginForm} options={{headerShown: false}}/>
-                        <Stack.Screen name="ChatScreen" component={ChatScreen} options={{headerShown: false}}/>
-                        <Stack.Screen name="TabNavigation" component={TabNavigation} options={{headerShown: false}}/>
+                    <Stack.Screen name="ChatScreen" component={ChatScreen} options={{headerShown: false}}/>
 */}
                 </Stack.Navigator>
             </NavigationContainer>

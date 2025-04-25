@@ -34,6 +34,12 @@ class UserService(
         return modelMapper.map(userTokenEntity, UserTokenDto::class.java)
     }
 
+    fun getFindUserInfoByJwtToken(userTokenEntity: UserTokenEntity): UserDto {
+        val userEntity = userRepository.getFindUserInfoByJwtToken(userTokenEntity)
+        return modelMapper.map(userEntity, UserDto::class.java)
+    }
+
+
     fun updateUserInfoByUser(userDto: UserDto): UserDto {
         validatorUtil.validator(userDto)
 

@@ -1,112 +1,118 @@
-import React, {useState} from 'react';
-import {TouchableOpacity, Image, Alert} from 'react-native';
-import Config from "react-native-config";
-// import NaverLogin, {GetProfileResponse, NaverLoginResponse} from "@react-native-seoul/naver-login";
-import axios from "axios";
-import {NativeStackNavigationProp} from "@react-navigation/native-stack";
-import {RootStackParamList} from "../../../Types/RootStackParamList.ts";
-import {useNavigation} from "@react-navigation/native";
-import axiosPost from "../../../Util/AxiosUtil.ts";
-import {setToken} from "../../../Util/JwtTokenUtil.ts";
-
+import React, { useEffect, useState } from 'react';
+import { Alert, Image, TouchableOpacity } from 'react-native';
+import NaverLogin, { GetProfileResponse, NaverLoginResponse } from "@react-native-seoul/naver-login";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../../Types/RootStackParamList";
+import { useNavigation } from "@react-navigation/native";
+import { NAVER_KEY, NAVER_SECRET_KEY } from "@env";
+import SnsAdditionalInfoModal from "../SnsAdditionalInfoModal";
+import axiosPost from "../../../Util/AxiosUtil";
+import {getToken, setToken} from "../../../Util/JwtTokenUtil";
 
 // @ts-ignore
-export default function NaverLoginButton({ styles }){
-    /*   const [success, setSuccessResponse]  = useState<NaverLoginResponse['successResponse']>();
-       const [failure, setFailureResponse]  = useState<NaverLoginResponse['failureResponse']>();
-       const [getProfileRes, setGetProfileRes] = useState<GetProfileResponse>();
+export default function NaverLoginButton({ styles }) {
+    const [successResponse, setSuccessResponse] = useState<NaverLoginResponse['successResponse']>();
+    const [failureResponse, setFailureResponse] = useState<NaverLoginResponse['failureResponse']>();
+    const [profileResponse, setProfileResponse] = useState<GetProfileResponse>();
+    const [modalVisible, setModalVisible] = useState(false);
+    const [passwd, setPasswd] = useState('');
+    const [newPasswd, setNewPasswd] = useState('');
+    const [nickName, setNickName] = useState('');
+    const [borderBottomColor, setBorderBottomColor] = useState('lightgray');
 
-       const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-       const consumerKey = Config.NAVER_KEY as string;
-       const consumerSecret = Config.NAVER_SECRET_KEY as string;
-       const appName = 'MoGakCo';
-       const serviceUrlSchemeIOS  = 'navertest' as string;
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    const consumerKey = NAVER_KEY;
+    const consumerSecret = NAVER_SECRET_KEY;
+    const appName = 'sosamoFront';
+    const serviceUrlSchemeIOS = 'navertest';
 
+    // NaverLogin 초기화: 컴포넌트가 마운트 될 때 한 번만 실행
+    useEffect(() => {
+        NaverLogin.initialize({
+            appName,
+            consumerKey,
+            consumerSecret,
+            serviceUrlSchemeIOS,
+        });
+    }, []);
 
-       // 초기화 함수
-       NaverLogin.initialize({
-           appName,
-           consumerKey,
-           consumerSecret,
-           serviceUrlSchemeIOS, // 수정된 부분
-       });
+    const handleNaverLogin = async () => {
+        try {
+            const response = await NaverLogin.login();
+            if (response.isSuccess && response.successResponse) {
+                setSuccessResponse(response.successResponse);
 
-       const login = async () => {
-           try {
-               const response = await NaverLogin.login();
-               if (response.isSuccess) {
-                   if (response.successResponse) {
-                       setSuccessResponse(response.successResponse);
-                       const profileResult = await NaverLogin.getProfile(response.successResponse.accessToken);
-                       setGetProfileRes(profileResult);
+                const profileResult = await NaverLogin.getProfile(response.successResponse.accessToken);
+                setProfileResponse(profileResult);
+                setModalVisible(true);
+            } else if (response.failureResponse) {
+                // @ts-ignore
+                const { lastErrorCodeFromNaverSDK, lastErrorDescriptionFromNaverSDK } = response;
+                if (lastErrorCodeFromNaverSDK === 'user_cancel') {
+                    console.log('User cancelled the login process.');
+                } else {
+                    console.error('Login failed:', lastErrorDescriptionFromNaverSDK);
+                }
+                setFailureResponse(response.failureResponse);
+            }
+        } catch (error) {
+            console.error('Login error', error);
+        }
+    };
 
-                       loginAxsio();
+    const handleJoin = async () => {
+        try {
+            const payload = {
+                email: profileResponse?.response.email,
+                passwd: passwd,
+                nickName: nickName,
+                ciKey: profileResponse?.response.id,
+                userType: "NAVER",
+            };
 
-                   } else if (response.failureResponse) {
-                       // @ts-ignore
-                       const {lastErrorCodeFromNaverSDK, lastErrorDescriptionFromNaverSDK} = response;
+            const res = await axiosPost.post('/user/join', JSON.stringify(payload));
+            if (res.data) {
+                Alert.alert("회원가입이 완료 되었습니다.");
 
-                       if (lastErrorCodeFromNaverSDK === 'user_cancel') {
-                           console.log('User cancelled the login process.');
-                           // 사용자가 취소했을 때 처리할 로직 추가
-                       } else {
-                           console.error('Login failed:', lastErrorDescriptionFromNaverSDK);
-                           // 로그인 실패 시 처리할 로직 추가
-                       }
-                       setFailureResponse(response.failureResponse);
-                   }
-               } else if (response.failureResponse) {
-                   // @ts-ignore
-                   const {lastErrorCodeFromNaverSDK, lastErrorDescriptionFromNaverSDK} = response;
-                   if (lastErrorCodeFromNaverSDK === 'user_cancel') {
-                       console.log('User cancelled the login process.');
-                       // 사용자가 취소했을 때 처리할 로직 추가
-                   } else {
-                       console.error('Login failed:', lastErrorDescriptionFromNaverSDK);
-                       // 로그인 실패 시 처리할 로직 추가
-                   }
-                   setFailureResponse(response.failureResponse);
-               }
-           } catch (error) {
-               console.error('Login error', error);
-           }
-       };
+                console.log('res.data', res.data);
 
-       const loginAxsio = () => {
-           axiosPost.post(Config.API_BASE_URL + '/user/userJoin', JSON.stringify({
-               userId: getProfileRes?.response.id,
-               email : getProfileRes?.response.email,
-               userName : getProfileRes?.response.name,
-               phoneNum : getProfileRes?.response.mobile,
-               userType : "Naver"
-           }), {
-
-               headers : {
-                   "Content-Type" : "application/json"
-               }
-
-           }).then(res => {
-
-               setToken(res.data)
-
-               if(res.data['searchUser'] === 'true'){
-                   Alert.alert("회원가입이 완료 되었습니다.")
-               }else{
-                   // navigation.navigate("TabNavigation")
-               }
-
-           })
-       }*/
+                const token = {
+                    AccessToken: res.data['token'],
+                    RefreshToken: res.data['token'],
+                }
 
 
+                setToken(token);
+                setModalVisible(false);
+                navigation.navigate('TabNavigation');
+            } else {
+                Alert.alert("회원가입에 실패하였습니다.");
+            }
+        } catch (error) {
+            console.error('Join error', error);
+            Alert.alert("회원가입에 실패하였습니다.");
+        }
+    };
 
     return (
-        <TouchableOpacity style={styles.socialButton} /*onPress={() => login()}*/>
+        <>
+            <TouchableOpacity style={styles.socialButton} onPress={handleNaverLogin}>
+                <Image source={require('../assets/naver.png')} style={styles.icon} />
+            </TouchableOpacity>
 
-            <Image source={require('../assets/naver.png')} style={styles.icon} />
-
-        </TouchableOpacity>
+            <SnsAdditionalInfoModal
+                modalVisible={modalVisible}
+                setModalVisible={setModalVisible}
+                nickName={nickName}
+                setNickName={setNickName}
+                passwd={passwd}
+                setPasswd={setPasswd}
+                newPasswd={newPasswd}
+                setNewPasswd={setNewPasswd}
+                BorderBottomColor={borderBottomColor}
+                setBoardBottomColor={setBorderBottomColor}
+                loginAxsio={handleJoin}
+            />
+        </>
     );
-};
-
-
+}

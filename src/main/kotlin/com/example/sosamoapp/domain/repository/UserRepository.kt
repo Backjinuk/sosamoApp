@@ -23,5 +23,7 @@ interface UserRepository {
 
     fun updateJwtTokenByUserSeq(userTokenEntity: UserTokenEntity?)
 
+    fun getFindUserInfoByJwtToken(userTokenEntity: UserTokenEntity): UserEntity
+
 
 }

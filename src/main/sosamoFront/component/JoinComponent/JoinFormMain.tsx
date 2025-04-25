@@ -44,17 +44,6 @@ export default function JoinFormMain() {
                     setNextStage={setNextStage}
                 />
 
-                <View style={{
-                    height: '35%',
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'center'
-                }}>
-                    {!nextStage ?
-                        <Button title={'다음 단계'} onPress={() => setNextStage(true)}/> :
-                        <Button title={'회원 가입'} onPress={() => setJoinEvent(true)}/>
-                    }
-                </View>
 
             </View>
         </SafeAreaView>

@@ -1,10 +1,10 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Config from "react-native-config";
+import { API_BASE_URL } from "@env";
 
 // Axios 인스턴스 생성
 const axiosPost = axios.create({
-    baseURL: Config.API_BASE_URL,
+    baseURL: API_BASE_URL,
     timeout: 1000,
     headers: {
         'Content-Type': 'application/json'
@@ -15,18 +15,15 @@ const axiosPost = axios.create({
 axiosPost.interceptors.request.use(
     async config => {
         try {
-            const accessToken = await AsyncStorage.getItem('AccessToken');
-            const refreshToken = await AsyncStorage.getItem('RefreshToken');
-
-            // console.log("accessToken : " + accessToken)
-            // console.log("refreshToken : " + refreshToken)
-
-            if (accessToken) {
-                config.headers['AccessToken'] = `Bearer ${accessToken}`;
-            }
-            if (refreshToken) {
-                config.headers['RefreshToken'] = refreshToken;
-            }
+            // const accessToken = await AsyncStorage.getItem('AccessToken');
+            // const refreshToken = await AsyncStorage.getItem('RefreshToken');
+            //
+            // if (accessToken) {
+            //     config.headers['AccessToken'] = `Bearer ${accessToken}`;
+            // }
+            // if (refreshToken) {
+            //     config.headers['RefreshToken'] = refreshToken;
+            // }
 
             config.headers['Content-Type'] = 'application/json';
 

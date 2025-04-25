@@ -8,7 +8,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     properties:
       hibernate: org.hibernate.dialect.MySQLDialect
   data:
@@ -36,3 +36,16 @@ jwt:
         ddl-auto: create
       properties:
         hibernate: org.hibernate.dialect.MySQLDialect
+    sql:
+      init:
+        mode: always
+        data-locations: classpath:data.sql
+    data:
+      mongodb:
+        database: app_db
+        uri: mongodb://app_user:wlsdnr7^^@backjin.iptime.org:27017
+
+  jwt:
+    secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+    expiration_time: 3600
+    refresh_time: 1209600

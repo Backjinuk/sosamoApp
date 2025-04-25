@@ -21,6 +21,7 @@ class UserRepositoryImpl(
 
     private val qUserTokenEntity: QUserTokenEntity = QUserTokenEntity.userTokenEntity
 
+
     override fun userJoin(user: UserEntity): UserEntity {
         entityManager.persist(user)
         return user
@@ -98,6 +99,21 @@ class UserRepositoryImpl(
         val resultValue = queryFactory.selectFrom(qUserEntity)
             .where(qUserEntity.email.eq(email).and(qUserEntity.passwd.eq(passwd)))
             .fetchOne()
+
+        if (resultValue == null) {
+            throw IllegalArgumentException("존재하지 않는 사용자 입니다.")
+        }
+
+        return resultValue
+    }
+
+
+    override fun getFindUserInfoByJwtToken(userTokenEntity: UserTokenEntity): UserEntity {
+        val resultValue = queryFactory.select(qUserEntity)
+            .from(qUserTokenEntity)
+            .join(qUserEntity).on(qUserTokenEntity.userSeq.eq(qUserEntity.userSeq))
+            .where(qUserTokenEntity.refreshToken.eq(userTokenEntity.refreshToken))
+            .fetchOne();
 
         if (resultValue == null) {
             throw IllegalArgumentException("존재하지 않는 사용자 입니다.")
